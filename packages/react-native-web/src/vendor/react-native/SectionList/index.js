@@ -286,6 +286,16 @@ class SectionList<SectionT: SectionBase<any>> extends React.PureComponent<
       return listRef.getScrollResponder();
     }
   }
+                  
+  /**
+   * Provides a reference to the underlying host component
+   */
+  getNativeScrollRef() {
+    const listRef = this._wrapperListRef && this._wrapperListRef.getListRef();
+    if (listRef) {
+      return listRef.getScrollRef();
+    }
+  }
 
   getScrollableNode() {
     const listRef = this._wrapperListRef && this._wrapperListRef.getListRef();
